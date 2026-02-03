@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibn Ahmad - Исламские знания</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><i class="fas fa-mosque"></i> Ibn Ahmad</h1>
+                <p>ХАТИМА МЕШОК</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="#quran"><i class="fas fa-book-quran"></i> Коран</a></li>
+                <li><a href="#hadith"><i class="fas fa-book-open"></i> Хадисы</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> О проекте</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="arabic-decoration">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+            <h2>Добро пожаловать на сайт Ibn Ahmad</h2>
+            <p>Полный текст Корана с переводом, хадисы имамов Аль-Бухари и Муслима, исламские знания</p>
+            <div class="hero-buttons">
+                <a href="#quran" class="btn btn-primary">Читать Коран</a>
+                <a href="#hadith" class="btn btn-secondary">Изучать хадисы</a>
+            </div>
+        </div>
+        <div class="hero-pattern"></div>
+    </section>
+
+    <!-- Секция Корана -->
+    <section class="section" id="quran">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-quran"></i> Священный Коран</h2>
+            <p class="section-subtitle">Полный текст Корана с переводом смыслов на русский язык (114 сур)</p>
+            
+            <div class="quran-controls">
+                <div class="search-box">
+                    <input type="text" id="surahSearch" placeholder="Поиск суры по названию...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="stats">
+                    <span class="stat-item"><i class="fas fa-book"></i> 114 сур</span>
+                    <span class="stat-item"><i class="fas fa-verse"></i> 6236 аятов</span>
+                </div>
+            </div>
+            
+            <div class="surah-list" id="surahList">
+                <!-- Список сур будет загружен через JavaScript -->
+                <div class="loading">Загрузка Корана...</div>
+            </div>
+            
+            <div class="surah-view" id="surahView" style="display: none;">
+                <div class="surah-view-header">
+                    <h3 class="surah-view-title" id="surahViewTitle"></h3>
+                    <button class="close-btn" id="closeSurahView">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="surah-view-info" id="surahViewInfo"></div>
+                <div class="verses-container" id="versesContainer">
+                    <!-- Аяты выбранной суры будут загружены здесь -->
+                </div>
+                <div class="surah-navigation">
+                    <button class="btn-nav" id="prevSurah"><i class="fas fa-chevron-left"></i> Предыдущая сура</button>
+                    <button class="btn-nav" id="nextSurah">Следующая сура <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция хадисов -->
+    <section class="section" id="hadith">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Хадисы Пророка (ﷺ)</h2>
+            <p class="section-subtitle">Из сборников имамов Аль-Бухари и Муслима</p>
+            
+            <div class="hadith-tabs">
+                <button class="tab-btn active" data-collection="bukhari">Сахих Аль-Бухари (7563 хадиса)</button>
+                <button class="tab-btn" data-collection="muslim">Сахих Муслим (7563 хадиса)</button>
+                <button class="tab-btn" data-collection="forty">40 хадисов Ан-Навави</button>
+            </div>
+            
+            <div class="hadith-container">
+                <div class="hadith-collection active" id="bukhariCollection">
+                    <!-- Хадисы Аль-Бухари будут загружены через JavaScript -->
+                </div>
+                <div class="hadith-collection" id="muslimCollection">
+                    <!-- Хадисы Муслима будут загружены через JavaScript -->
+                </div>
+                <div class="hadith-collection" id="fortyCollection">
+                    <!-- 40 хадисов Ан-Навави будут загружены через JavaScript -->
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn btn-secondary" id="loadMoreHadith">Загрузить больше хадисов</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> О проекте Ibn Ahmad</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="islamic-pattern"></div>
+                </div>
+                <div class="about-text">
+                    <h3>Миссия проекта</h3>
+                    <p>Проект <strong>Ibn Ahmad</strong> создан для распространения достоверных исламских знаний на русском языке, с уважением к арабской культуре и традициям народов Дагестана.</p>
+                    
+                    <h3>Что мы предлагаем:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>Полный текст Корана</strong> с переводом смыслов и транскрипцией</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Хадисы</strong> из авторитетных сборников (Аль-Бухари, Муслим, 40 хадисов Ан-Навави)</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Толкования</strong> сложных аятов и хадисов</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Исторический контекст</strong> ниспослания сур Корана</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Культурные материалы</strong> о традициях ислама в Дагестане</li>
+                    </ul>
+                    
+                    <h3>Наши принципы:</h3>
+                    <p>Мы придерживаемся принципов ахлю-с-сунна валь-джама'а и следуем пониманию саляфов. Все материалы проверяются на достоверность источников.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Достоверность</h4>
+                            <p>Проверенные источники и точные переводы</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Образование</h4>
+                            <p>Систематическое изучение исламских наук</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hands-helping"></i>
+                            <h4>Доступность</h4>
+                            <p>Бесплатный доступ для всех желающих</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><i class="fas fa-mosque"></i> Ibn Ahmad</h3>
+                    <p>Исламские знания для русскоязычных мусульман</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы сайта</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#quran">Коран</a></li>
+                        <li><a href="#hadith">Хадисы</a></li>
+                        <li><a href="#about">О проекте</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Скачать Коран</a></li>
+                        <li><a href="#">Книги по исламу</a></li>
+                        <li><a href="#">Аудио лекции</a></li>
+                        <li><a href="#">Вопросы-ответы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-verse">
+                    <p class="arabic">رَبِّ زِدْنِي عِلْمًا</p>
+                    <p>"Господи, приумножь мои знания!"</p>
+                    <p>Коран, 20:114</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ibn Ahmad. Все права защищены.</p>
+                <p>При использовании материалов ссылка на сайт обязательна.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка вверх -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="ap.js"></script>
+</body>
+</html>
